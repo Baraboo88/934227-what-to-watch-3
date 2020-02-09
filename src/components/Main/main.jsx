@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Main = (props) => {
-  // eslint-disable-next-line react/prop-types
-  const {promoFilmName, promoFilmGenre, promoFilmDate} = props;
+
+  const {titleClickHandler, promoFilmName, promoFilmGenre, promoFilmDate} = props;
 
   return (
     <React.Fragment>
@@ -49,7 +50,7 @@ const Main = (props) => {
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{promoFilmName}</h2>
+              <h2 className="movie-card__title" onClick={titleClickHandler} data-test="test-title">{promoFilmName} </h2>
               <p className="movie-card__meta">
                 <span className="movie-card__genre">{promoFilmGenre}</span>
                 <span className="movie-card__year">{promoFilmDate}</span>
@@ -482,6 +483,13 @@ const Main = (props) => {
       </div>
     </React.Fragment>
   );
+};
+
+Main.propTypes = {
+  promoFilmName: PropTypes.string,
+  promoFilmGenre: PropTypes.string,
+  promoFilmDate: PropTypes.number,
+  titleClickHandler: PropTypes.func
 };
 
 export default Main;

@@ -1,11 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/app.jsx';
+import App from './components/App/app.jsx';
+import {promoFilmData, titleClickHandler} from "./utils/test-data";
 
-const promoFilmData = {
-  promoFilmName: `The Grand Budapest Hotel`,
-  promoFilmGenre: `Drama`,
-  promoFilmDate: 2014
-};
-
-ReactDOM.render(<App {...promoFilmData}/>, document.querySelector(`#root`));
+ReactDOM.render(<App {...promoFilmData} titleClickHandler = {titleClickHandler}/>, document.querySelector(`#root`));

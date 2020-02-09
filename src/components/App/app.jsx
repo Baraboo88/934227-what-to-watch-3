@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from './main.jsx';
+import Main from '../Main/main.jsx';
 
 const App = (props) => {
   return (
