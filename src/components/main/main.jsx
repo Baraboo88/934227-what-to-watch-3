@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import CardList from "../CardList/card-list.jsx";
+import CardsList from "../card-list/cards-list.jsx";
+import {cardPropTypes} from "../../utils/utils";
 const Main = (props) => {
 
-  const {titleClickHandler, promoFilmName, promoFilmGenre, promoFilmDate, films} = props;
+  const {titleClickHandler, promoFilmName, promoFilmGenre, promoFilmDate, cards, onTitleClick} = props;
 
   return (
     <React.Fragment>
@@ -142,8 +143,8 @@ const Main = (props) => {
 
 
             {
-              films ?
-                <CardList films={films}/>
+              cards ?
+                <CardsList cards={cards} onTitleClick = {onTitleClick}/>
                 : null
             }
 
@@ -179,7 +180,8 @@ Main.propTypes = {
   promoFilmGenre: PropTypes.string,
   promoFilmDate: PropTypes.number,
   titleClickHandler: PropTypes.func,
-  films: PropTypes.array
+  cards: PropTypes.arrayOf(cardPropTypes).isRequired,
+  onTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;

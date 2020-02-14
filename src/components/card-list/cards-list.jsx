@@ -1,9 +1,9 @@
 import React, {PureComponent} from "react";
-import SmallCard from "../SmallCard/small-card.jsx";
-import PropTypes from "prop-types";
+import SmallCard from "../small-card/small-card.jsx";
 import {cardPropTypes} from "../../utils/utils";
+import PropTypes from "prop-types";
 
-class CardList extends PureComponent {
+class CardsList extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,19 +29,21 @@ class CardList extends PureComponent {
         card = {card}
         key={card.id}
         onMouseOver={() => this._hoverFilmHandler(card.id)}
+        onTitleClick = {this.props.onTitleClick}
       />
     ));
   }
 
   render() {
     return (
-      <React.Fragment>{this._renderCard(this.props.films)}</React.Fragment>
+      <React.Fragment>{this._renderCard(this.props.cards)}</React.Fragment>
     );
   }
 }
 
-CardList.propTypes = {
-  films: PropTypes.arrayOf(cardPropTypes).isRequired
+CardsList.propTypes = {
+  cards: PropTypes.arrayOf(cardPropTypes).isRequired,
+  onTitleClick: PropTypes.func.isRequired
 };
 
-export default CardList;
+export default CardsList;

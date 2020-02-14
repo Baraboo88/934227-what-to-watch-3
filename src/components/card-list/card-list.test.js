@@ -1,12 +1,13 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import SmallCard from "./small-card";
+import CardsList from "./cards-list";
 import {mockFilms} from "../../utils/test-utils";
 
-it(`SmallCard component is correctly rendering`, () => {
-  const tree = renderer.create(<SmallCard
-    card={mockFilms[0]}
+it(`CardList component is correctly rendering`, () => {
+  const tree = renderer.create(<CardsList
+    cards={mockFilms}
     onMouseOver = {() => {}}
+    onTitleClick={() => {}}
   />).toJSON();
   expect(tree).toMatchSnapshot();
 });
